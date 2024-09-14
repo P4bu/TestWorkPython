@@ -39,9 +39,12 @@ SELECT
     c.Nombre AS Curso,
     cast(AVG(N.Nota)AS decimal(10,2)) AS Promedio
 FROM Alumnos a
-JOIN Inscripciones I ON a.AlumnoID = i.AlumnoID
+JOIN Inscripciones i ON a.AlumnoID = i.AlumnoID
 JOIN Cursos c ON i.CursoID = c.CursoID
 JOIN Pruebas p ON c.CursoID = p.CursoID
 JOIN Notas n ON p.PruebaID = n.PruebaID AND a.AlumnoID = n.AlumnoID
 GROUP BY a.Nombre, a.Apellido, c.Nombre
 ORDER by Promedio desc
+
+-- Escriba un Query que lista a todos los alumnos con más de un ramo con promedio rojo.
+
