@@ -1,0 +1,39 @@
+Se tiene una tabla con información de jugadores de tenis:
+PLAYERS (Nombre, Pais, Ranking). Suponga que Ranking es un número de 1 a 100 que es distinto para cada
+jugador. Si la tabla en un momento dado tiene solo 20 tuplas, indique cuantas tuplas tiene la tabla que resulta
+de la siguiente consulta:
+
+SELECT c1.Nombre, c2.Nombre FROM PLAYERS c1, PLAYERS c2 WHERE c1.Ranking > c2.Ranking
+
+a. 400
+b. 190
+c. 20
+d. imposible saberlo
+
+DESARROLLO 
+SELECT c1.Nombre, c2.Nombre FROM PLAYERS c1, PLAYERS c2 WHERE c1.Ranking > c2.Ranking 
+Esta consulta es una consulta de SELFT-JOIN; una de sus funciones es poder comparar filas (tuplas) de la misma tabla.
+SELECT c1.Nombre, c2.Nombre FROM PLAYERS c1, PLAYERS c2 -> esto realizaria la total combinacion de la tabla PLAYERS Ccon todas sus filas. 
+por lo tanto: como dice el enunciado existen 20 judadores
+
+combinacion_total = 20 * 20 
+combinacion_total = 400
+entonces las combiancion seria (c1,c2) y (c2,c1)
+
+pero tiene una restricion: WHERE c1.Ranking > c2.Ranking
+que solo se pueden mezclar si el c1.ranking es mayor a c2.ranking
+por lo tanto las combinaciones serian solo para un lado donde c1>c2 y esto ya nos deja solo la mitad de los casos posibles 
+
+combinaciones_restirccion_totales = 20 * (20) / 2
+combinaciones_restirccion_totales = 200
+
+pero como solo se puede emparejar si el c1 > c2 
+La ecuacion queda:
+combinaciones_restirccion_totales = n * (n - 1) / 2
+donde n = cantidad de tuplas de la tabla (PLAYERS)
+
+combinaciones_restirccion_totales = 20 * (20-1) / 2
+combinaciones_restirccion_totales = 190
+
+RESPUESTA:
+por lo tanto: resultan 190 tuplas de la tabla con la consulta entregada 
